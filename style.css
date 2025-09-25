@@ -82,3 +82,8 @@ img {
     margin: 100px auto auto;
 
 }
+
+.done{
+    background-color: #ec8d20f1;
+    text-decoration: line-through;
+}

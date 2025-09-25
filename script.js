@@ -8,7 +8,7 @@ function newTask() {
     listItens.push({
         task: input.value,
         finish: false
-        
+
     })
 
     input.value = '';
@@ -21,8 +21,8 @@ function showTask() {
 
     listItens.forEach((addTask, indexArray) => {
         newList = newList + `
-         <li class="task">
-                    <img src="./img/checked.png" alt="imagem de check">
+         <li class="task ${addTask.finish && "done"}">
+                    <img  src="./img/checked.png" alt="imagem de check" onclick="finishTask(${indexArray})">
                     <p>${addTask.task}</p>
                     <img src="./img/trash.png" alt="imagem de lixeira" onclick="delItem(${indexArray})">
                 </li>
@@ -30,6 +30,13 @@ function showTask() {
     })
     completList.innerHTML = newList;
 
+    localStorage.setItem('lists', JSON.stringify(listItens))
+
+}
+
+function finishTask(indexArray) {
+    listItens[indexArray].finish = !listItens[indexArray].finish
+    showTask();
 }
 
 function delItem(indexArray) {
@@ -38,4 +45,8 @@ function delItem(indexArray) {
     showTask();
 }
 
+function reloadTasks() {
+    const taskLocalStorage = localStorage.getItem('lists')
+}
+reloadTasks()
 button.addEventListener('click', newTask)
