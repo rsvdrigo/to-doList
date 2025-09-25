@@ -47,6 +47,10 @@ function delItem(indexArray) {
 
 function reloadTasks() {
     const taskLocalStorage = localStorage.getItem('lists')
+    if(taskLocalStorage){
+    listItens = JSON.parse(taskLocalStorage);
+    }
+    showTask();
 }
 reloadTasks()
 button.addEventListener('click', newTask)
