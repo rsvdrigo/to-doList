@@ -17,7 +17,7 @@ function newTask() {
 
 function showTask() {
 
-    let newList;
+    let newList = '';
 
     listItens.forEach((addTask, indexArray) => {
         newList = newList + `
